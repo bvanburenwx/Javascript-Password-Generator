@@ -12,3 +12,9 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+// function to generate password
+function generatePassword() {
+  okKey = parseInt(prompt("How many characters would you like your password to be? Please choose between 8 and 128 characters"))
+  
+}
