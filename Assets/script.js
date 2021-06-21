@@ -16,15 +16,17 @@ generateBtn.addEventListener("click", writePassword);
 // function to generate password
 function generatePassword() {
   enteredValue = parseInt(prompt("How many characters would you like your password to be? Please choose between 8 and 128 characters"))
-
+// if else statement used to prompt that a value must be between 8-128 characters. 
   if (!enteredValue) {
     alert("You must select a value");
   } else if (enteredValue < 8 || enteredValue > 128); {
-
+// prompt used to let user know that the character they choose must be between 8 and 128.
     enteredValue = parseInt(prompt("Your choice must be between 8 and 128"));
   }
 
+
 }
+
 // creating a function using the numeric character code values to generate random lowercase letters
 function randomLowercase() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
@@ -37,5 +39,13 @@ function randomUppercase() {
 function randomNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
+// creating a function to return a random symbol. 
+function randomSymbol() {
+  const symbols = '!#$%&()*+,-./:;<=>?@[]^_`{|}~'
+  return symbols[Math.floor(Math.random() * symbols.length)];
+}
 
+console.log(randomLowercase());
+console.log(randomUppercase());
 console.log(randomNumber());
+console.log(randomSymbol());
