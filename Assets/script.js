@@ -1,5 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var allChoices = "";
+var lowerCase = "qwertyuioplkjhgfdsazxcvbnm"
+var upperCase = "QWERTYUIOPLKJHGFDSAZXCVBNM"
+var numberChoices = "1234567890"
+var symbolChoices = "!#$%&()*+,-./:;<=>?@[]^_`{|}~"
 
 // Write password to the #password input
 function writePassword() {
@@ -15,37 +20,47 @@ generateBtn.addEventListener("click", writePassword);
 
 // function to generate password
 function generatePassword() {
-  enteredValue = parseInt(prompt("How many characters would you like your password to be? Please choose between 8 and 128 characters"))
+var enteredValue = parseInt(prompt("How many characters would you like your password to be? Please choose between 8 and 128 characters"))
 // if else statement used to prompt that a value must be between 8-128 characters. 
   if (!enteredValue) {
     alert("You must select a value");
-  } else if (enteredValue < 8 || enteredValue > 128); {
+  } else if (enteredValue < 8 && enteredValue > 128) {
 // prompt used to let user know that the character they choose must be between 8 and 128.
-    enteredValue = parseInt(prompt("Your choice must be between 8 and 128"));
-  }
+  enteredValue = parseInt(prompt("Your choice must be between 8 and 128"));
+  } else {
+    // using a confirm prompt to decide if user wants uppercase letters as a part of password
+    var capitalLetters = window.confirm("Would you like upppercase letters?")
+    console.log(capitalLetters);
+    // using a confirm prompt to decide if user wants lowercase letters as a part of password
+    var lowerCaseLetters = window.confirm("Would you like lowercase letters?")
+    console.log(lowerCaseLetters);
+    // using a confirm prompt to decide if user wants numbers as a part of password
+    var numbers = window.confirm("Would you like numbers?")
+    console.log(numbers);
+    // using a confirm prompt to decide if user wants symbols as a part of password
+    var symbols = window.confirm("Would you like symbols?")
+    console.log(symbols);
+    // series of if statements that combines a string into an emtpy string if the variable is true
+    if (capitalLetters === true) {
+      allChoices += upperCase;
+    } 
+    if (lowerCaseLetters === true) {
+        allChoices += lowerCase;
+    }    
+    if (numbers === true) {
+          allChoices += numberChoices;
+    }
+    if (symbols === true) {
+            allChoices += symbolChoices;
+    }
+      console.log(allChoices);
+      console.log(enteredValue)
+      // A for loop to make sure that once all of the statements are true they produce the right amount of characters.
+      for (var i = 0; i < enteredValue; i++) {
+        var password = Math.floor(Math.random() * allChoices.length);
+      console.log(password);
+      }
 
+  } 
 
 }
-
-// creating a function using the numeric character code values to generate random lowercase letters
-function randomLowercase() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
-// creating a function using the numeric character code values to generate random uppercase letters
-function randomUppercase() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
-// creating a function using the numeric character code values to generate random numbers from 0-9
-function randomNumber() {
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
-// creating a function to return a random symbol. 
-function randomSymbol() {
-  const symbols = '!#$%&()*+,-./:;<=>?@[]^_`{|}~'
-  return symbols[Math.floor(Math.random() * symbols.length)];
-}
-
-console.log(randomLowercase());
-console.log(randomUppercase());
-console.log(randomNumber());
-console.log(randomSymbol());
