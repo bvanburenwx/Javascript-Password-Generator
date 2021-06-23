@@ -1,4 +1,5 @@
 // Assignment Code
+var actualPassword = ""
 var generateBtn = document.querySelector("#generate");
 var allChoices = "";
 var lowerCase = "qwertyuioplkjhgfdsazxcvbnm"
@@ -30,16 +31,16 @@ var enteredValue = parseInt(prompt("How many characters would you like your pass
   } else {
     // using a confirm prompt to decide if user wants uppercase letters as a part of password
     var capitalLetters = window.confirm("Would you like upppercase letters?")
-    console.log(capitalLetters);
+    
     // using a confirm prompt to decide if user wants lowercase letters as a part of password
     var lowerCaseLetters = window.confirm("Would you like lowercase letters?")
-    console.log(lowerCaseLetters);
+    
     // using a confirm prompt to decide if user wants numbers as a part of password
     var numbers = window.confirm("Would you like numbers?")
-    console.log(numbers);
+   
     // using a confirm prompt to decide if user wants symbols as a part of password
     var symbols = window.confirm("Would you like symbols?")
-    console.log(symbols);
+    
     // series of if statements that combines a string into an emtpy string if the variable is true
     if (capitalLetters === true) {
       allChoices += upperCase;
@@ -53,14 +54,15 @@ var enteredValue = parseInt(prompt("How many characters would you like your pass
     if (symbols === true) {
             allChoices += symbolChoices;
     }
-      console.log(allChoices);
-      console.log(enteredValue)
-      // A for loop to make sure that once all of the statements are true they produce the right amount of characters.
-      for (var i = 0; i < enteredValue; i++) {
-        var password = Math.floor(Math.random() * allChoices.length);
-      console.log(password);
-      }
+    
+    // A for loop to make sure that once all of the statements are true they produce the right amount of characters.
+    for (var i = 0; i < enteredValue; i++) {
+        var pass = Math.floor(Math.random() * allChoices.length + 1);
 
+      // continues to concatinate random characters from the string until the desired number of characters is reached. 
+        actualPassword += allChoices.charAt(pass);
+    }
+    return actualPassword;
   } 
 
 }
