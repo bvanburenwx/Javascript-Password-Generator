@@ -7,6 +7,9 @@ criteria must be between 8 and 128 characters. The prompts will then ask the use
 
 The random password is generated using various functions in javascript and a series of if/else statements to prompt and confirm user choices. 
 
+---
+
+## Steps and Screenshots
 
 Step 1 - Click Generate Password
  ![Password Generator](https://user-images.githubusercontent.com/83733566/123166661-a91bc980-d443-11eb-8e88-c71bd244bf0c.png)
@@ -37,6 +40,21 @@ Step 7 - See Generated Password
  
  ![Generated Password](https://user-images.githubusercontent.com/83733566/123167334-673f5300-d444-11eb-8910-6c6cae195d4a.png)
  #User view once all the prompts have been answered and criteria is selected, a password is not generated. 
+
+---
+
+## Technologies 
+* HTML
+* Javascript
+* CSS
+
+---
+
+## See the site below
+
+* [Javascript Password Generator](https://bvanburenwx.github.io/Javascript-Password-Generator/)
+
+
 
 
 
